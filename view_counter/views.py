@@ -94,5 +94,5 @@ def view_sale(request,vid):
 			context['all_sales'] = all_sales
 		return render(request,"view_sale.html", context)
 	else:
-		 returnHttpResponseRedirect('/login');
+		 return HttpResponseRedirect('/login');
 
