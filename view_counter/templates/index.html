@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{%block title%}
+	Index
+{%endblock%}
+{%block branding%}
+	Index
+{%endblock%}
+{%block content%}
+	<p> Welcome to Index you have Following Options: </p>
+	<button onclick ="location.href = '/create_sale' " type="button" >Create Sale</button>
+	<p><button onclick ="location.href = '/view_sale' " type="button" >View Sales</button></p>
+	{% if query %}
+	<p>Your Sales:</p>
+		{%for i in query%}
+			<p><b><i>Sale Title: </i> </b>{{i.Sale_title}} 				<button onclick="location.href ='/view_sale/{{i.id}}'">Details/Edit</button></p>
+		{%endfor%}
+	{% endif %}
+	
+{%endblock%}

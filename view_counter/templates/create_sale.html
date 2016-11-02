@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{%block title%}
+	Sale Creation
+{%endblock%}
+{%block branding%}
+	Create your Sales here!
+{%endblock%}
+{%block content%}
+        <h1>Create Sale</h1>
+        {%if sale_id%}
+			<form id="sale_form" method="post" action="/create_sale/{{sale_id}}/" enctype="multipart/form-data">
+        {%else%}
+			<form id="sale_form" method="post" action="/create_sale/" enctype="multipart/form-data">
+		{%endif%}
+            {% csrf_token %}
+            <p>{{ sale_form.Sale_title.label }}</p>
+            <p>{{ sale_form.Sale_title.errors }}</p>
+            <p>{{ sale_form.Sale_title }}</p>
+            
+            <p>{{ sale_form.Sale_descript.label}}</p>
+            <p>{{ sale_form.Sale_descript.errors}}</p>
+            <p>{{ sale_form.Sale_descript}}</p>
+            <input type="submit" name="submit" value="Create" />
+        </form>
+        
+{%endblock%}       

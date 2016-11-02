@@ -1,0 +1,9 @@
+Django version 1.9.7
+THIS Django project is totally done
+You need only to create it's database.
+STEPS:
+ - cd into root directory (where manage.py is located)
+ - ./manage.py makemigrations view_counter
+ - ./manage.py migrate
+ - ./manage.py runserver
+ - Visit your 127.0.0.1:8000 and enjoy this little django project!

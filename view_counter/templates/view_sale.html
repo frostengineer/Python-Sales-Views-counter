@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{%block title%}
+	Sales Overview
+{%endblock%}
+{%block branding%}
+	Sales view, click on sale for details
+{%endblock%}
+{%block content%}
+{% if all_sales %}
+	{%for i in all_sales%}
+		<p><b><i>Sale Title: </i> </b>{{i.Sale_title}} - <b> username: </b>{{i.user.username}} <button onclick="location.href ='/view_sale/{{i.id}}'">Details</button></p>
+	{%endfor%}
+{% elif view_id %}
+	<p><b>Sale Title: </b>{{view_id.Sale_title}}</p>
+	<p><b>Description: </b>{{ view_id.Sale_descript}}</p>
+	<p><b>Creator: </b>{{view_id.user.username}}</p>
+	<p><b>Views count: </b> {{counter}}</p>
+	<p><b>Viewers seen this Sale: </b> {{viewers}}</p>
+	{%if edit%}
+	<p><button onclick="location.href='/create_sale/{{view_id.id}}'">Edit your Sale</button></p>
+	{%endif%}
+{% else %}
+	<b> NO SUCH SALE! </b>
+{%endif%}
+
+{%endblock%}
